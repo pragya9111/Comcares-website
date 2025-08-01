@@ -14,6 +14,13 @@ This is the initial setup for the Comcares Technologies Website frontend project
 - Custom font families are set for headings and body text.
 - Styles are imported in [`src/styles/index.css`](src/styles/index.css).
 
+## Theme Toggle Feature
+
+- Implemented dark/light theme toggle using **Redux Toolkit** for state management.
+- Used **Material UI**'s Switch component for the toggle.
+- Integrated **react-icons** for theme-related icons.
+- Tailwind CSS classes are dynamically applied based on the selected theme.
+
 ## Folder Structure
 
 ```
