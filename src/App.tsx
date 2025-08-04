@@ -1,43 +1,40 @@
-import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import type { RootState } from './store/store';
-import ThemeToggle from './components/ThemeToggle';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import MainLayout from './layout/MainLayout';
+import About from './pages/About';
+import Contact from './pages/Contact';
 
-function App() {
-  const currentTheme = useSelector((state: RootState) => state.theme.theme);
-
-  useEffect(() => {
-    const html = document.documentElement;
-    if (currentTheme === 'dark') {
-      html.classList.add('dark');
-    } else {
-      html.classList.remove('dark');
-    }
-
-    // Also apply to body for better compatibility
-    const body = document.body;
-    if (currentTheme === 'dark') {
-      body.classList.add('dark');
-    } else {
-      body.classList.remove('dark');
-    }
-  }, [currentTheme]);
-
+const App = () => {
   return (
-    <div className={currentTheme}>
-      <div className={'min-h-screen bg-cyan-50 text-slate-900 dark:bg-slate-950 dark:text-white'}>
-        <div className="container mx-auto p-4">
-          <div className="flex justify-between items-center">
-            <h1 className="text-2xl font-heading">
-              Hi, Dev
-              <span className="text-sm text-blue-600 dark:text-red-600">s</span>
-            </h1>
-            <ThemeToggle />
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-}
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <MainLayout>
+              <Home />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/about"
+          element={
+            <MainLayout>
+              <About />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/contact"
+          element={
+            <MainLayout>
+              <Contact />
+            </MainLayout>
+          }
+        />
+      </Routes>
+    </Router>
+  );
+};
 
-export default App
+export default App;
