@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import MainLayout from './layout/MainLayout';
 import About from './pages/About';
-import Contact from './pages/Contact';
+import ContactUs from './pages/ContactUs';
 
 const App = () => {
   return (
@@ -25,10 +25,10 @@ const App = () => {
           }
         />
         <Route
-          path="/contact"
+          path="/contactus"
           element={
             <MainLayout>
-              <Contact />
+              <ContactUs />
             </MainLayout>
           }
         />

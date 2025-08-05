@@ -42,7 +42,7 @@ const Footer = () => {
                 </div>
                 <div className="flex items-center space-x-3 text-gray-600 dark:text-gray-300">
                   <FiMapPin className="w-5 h-5 text-blue-600 dark:text-blue-400" />
-                  <span>Indore, Madhya Pradesh, India</span>
+                  <span>418, Onam Palaza, AB Road, Indore, 452001, MP, India</span>
                 </div>
               </div>
             </div>
@@ -56,7 +56,7 @@ const Footer = () => {
                   { label: 'Our Services', to: '/services' },
                   { label: 'Products', to: '/products' },
                   { label: 'Portfolio', to: '/portfolio' },
-                  { label: 'Contact', to: '/contact' }
+                  { label: 'Contact Us', to: '/contactus' }
                 ].map(({ label, to }) => (
                   <li key={label}>
                     <Link
