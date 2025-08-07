@@ -1,6 +1,14 @@
 import { FiMail, FiPhone, FiMapPin } from 'react-icons/fi';
+import type { NavigationItem } from '../types';
 
-// Constants for better maintainability
+// Navigation constants
+export const NAVIGATION_ITEMS: NavigationItem[] = [
+  { label: 'Home', path: '/' },
+  { label: 'About Us', path: '/about-us' },
+  { label: 'Portfolio', path: '/portfolio' },
+  { label: 'Contact Us', path: '/contact-us' }
+];
+
 export const CONTACT_INFO = [
   {
     icon: FiMail,
@@ -23,3 +31,18 @@ export const CONTACT_INFO = [
 ];
 
 export const SERVICE_CATEGORIES = ['UI/UX Design', 'App Development', 'Web Development', 'Other'];
+
+export const productDescriptions = [
+  'Create interactive data visualizations',
+  'Monitor team performance metrics',
+  'Advanced customer segmentation',
+  'Deep insights and analytics'
+];
+
+export const serviceDescriptions = [
+  'Custom web applications & solutions',
+  'iOS & Android app development',
+  'User experience & interface design',
+  'SEO, social media & digital strategy',
+  'Customer support & business solutions'
+];

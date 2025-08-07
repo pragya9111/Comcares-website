@@ -9,6 +9,11 @@ export interface LayoutProps {
   children: ReactNode;
 }
 
+export interface NavigationItem {
+  label: string;
+  path: string;
+}
+
 export interface DropdownItem {
   label: string;
   icon: ReactNode;
@@ -32,6 +37,7 @@ export interface CustomInputProps extends Omit<TextFieldProps, 'variant'> {
 export interface CustomButtonProps extends Omit<MuiButtonProps, 'variant'> {
   customvariant?: 'primary' | 'secondary' | 'outline';
   customsize?: 'small' | 'medium' | 'large';
+  mode?: 'light' | 'dark';
 }
 
 export interface CustomTextareaProps extends Omit<TextFieldProps, 'variant' | 'multiline'> {
@@ -49,7 +55,6 @@ export interface FormData {
   serviceCategory: string;
   message: string;
 }
-
 
 export interface ContactFormProps {
   className?: string;

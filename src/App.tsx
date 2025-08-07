@@ -17,7 +17,7 @@ const App = () => {
           }
         />
         <Route
-          path="/about"
+          path="/about-us"
           element={
             <MainLayout>
               <About />
@@ -25,7 +25,7 @@ const App = () => {
           }
         />
         <Route
-          path="/contactus"
+          path="/contact-us"
           element={
             <MainLayout>
               <ContactUs />

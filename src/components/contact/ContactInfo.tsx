@@ -9,22 +9,26 @@ const ContactInfo: React.FC = () => {
         return (
           <div key={index} className="flex flex-col items-center group">
             <div
-              className="text-white text-4xl mb-4 transition-transform duration-300 group-hover:scale-110"
+              className="text-gray-800 dark:text-white text-4xl mb-4 transition-transform duration-300 group-hover:scale-110"
               aria-hidden="true"
             >
               <IconComponent />
             </div>
+
             <a
               href={contact.href}
-              className="font-semibold text-lg hover:text-gray-300 transition-colors duration-200"
+              className="font-semibold text-lg text-gray-800 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-300 transition-colors duration-200"
               aria-label={`${contact.subtitle}: ${contact.title}`}
               target={contact.href.startsWith('http') ? '_blank' : undefined}
               rel={contact.href.startsWith('http') ? 'noopener noreferrer' : undefined}
             >
               {contact.title}
             </a>
+
             {contact.subtitle !== contact.title && (
-              <p className="text-sm text-gray-400 mt-1">{contact.subtitle}</p>
+              <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                {contact.subtitle}
+              </p>
             )}
           </div>
         );

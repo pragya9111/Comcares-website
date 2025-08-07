@@ -4,69 +4,89 @@ import { styled } from '@mui/material/styles';
 import type { CustomButtonProps } from '../../types';
 
 // Styled Material-UI Button with custom styling
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const StyledButton = styled(MuiButton)<{ customvariant?: 'primary' | 'secondary' | 'outline' }>(({ theme, customvariant = 'primary' }) => ({
-  borderRadius: '9999px', // rounded-full
-  fontWeight: 'bold',
-  textTransform: 'none',
-  transition: 'all 0.2s ease-in-out',
+const StyledButton = styled(MuiButton, {
+  shouldForwardProp: (prop) => prop !== 'customvariant' && prop !== 'mode',
+})<{ customvariant?: 'primary' | 'secondary' | 'outline'; mode?: 'light' | 'dark' }>(
+  ({ theme, customvariant = 'primary', mode = 'light' }) => {
+    const isDark = mode === 'dark';
 
-  ...(customvariant === 'primary' && {
-    backgroundColor: 'white',
-    color: 'black',
-    '&:hover': {
-      backgroundColor: '#e5e7eb', // gray-200
-      transform: 'scale(1.05)',
-      boxShadow: '0 10px 25px rgba(0, 0, 0, 0.2)',
-    },
-    '&:focus': {
-      outline: '2px solid white',
-      outlineOffset: '2px',
-    },
-  }),
+    return {
+      borderRadius: '9999px',
+      fontWeight: 'bold',
+      textTransform: 'none',
+      transition: 'all 0.2s cubic-bezier(.4,0,.2,1)',
+      boxShadow: 'none',
 
-  ...(customvariant === 'secondary' && {
-    backgroundColor: '#4b5563', // gray-600
-    color: 'white',
-    '&:hover': {
-      backgroundColor: '#6b7280', // gray-500
-      transform: 'scale(1.05)',
-      boxShadow: '0 10px 25px rgba(0, 0, 0, 0.2)',
-    },
-    '&:focus': {
-      outline: '2px solid #6b7280',
-      outlineOffset: '2px',
-    },
-  }),
+      ...(customvariant === 'primary' && {
+        backgroundColor: theme.palette.primary.main,
+        color: theme.palette.primary.contrastText,
+        '&:hover': {
+          backgroundColor: isDark
+            ? theme.palette.primary.light
+            : theme.palette.primary.dark,
+          boxShadow: '0 4px 16px rgba(0,0,0,0.15)',
+          transform: 'scale(1.04)',
+        },
+        '&:focus': {
+          outline: `2px solid ${theme.palette.primary.main}`,
+          outlineOffset: '2px',
+        },
+      }),
 
-  ...(customvariant === 'outline' && {
-    backgroundColor: 'transparent',
-    color: 'white',
-    border: '1px solid #4b5563', // gray-600
-    '&:hover': {
-      backgroundColor: 'white',
-      color: 'black',
-      borderColor: 'white',
-      transform: 'scale(1.02)',
-    },
-    '&:focus': {
-      outline: '2px solid white',
-      outlineOffset: '2px',
-    },
-  }),
+      ...(customvariant === 'secondary' && {
+        backgroundColor: theme.palette.secondary.main,
+        color: theme.palette.secondary.contrastText,
+        '&:hover': {
+          backgroundColor: isDark
+            ? theme.palette.secondary.light
+            : theme.palette.secondary.dark,
+          boxShadow: '0 4px 16px rgba(0,0,0,0.15)',
+          transform: 'scale(1.04)',
+        },
+        '&:focus': {
+          outline: `2px solid ${theme.palette.secondary.main}`,
+          outlineOffset: '2px',
+        },
+      }),
 
-  '&:disabled': {
-    opacity: 0.5,
-    cursor: 'not-allowed',
-    '&:hover': {
-      transform: 'none',
-    },
-  },
-}));
+      ...(customvariant === 'outline' && {
+        backgroundColor: 'transparent',
+        color: isDark ? theme.palette.grey[100] : theme.palette.primary.main,
+        border: `2px solid ${isDark ? theme.palette.grey[400] : theme.palette.primary.main}`,
+        '&:hover': {
+          backgroundColor: isDark
+            ? theme.palette.action.hover
+            : theme.palette.action.selected,
+          color: isDark ? theme.palette.primary.main : theme.palette.primary.dark,
+          borderColor: isDark
+            ? theme.palette.primary.light
+            : theme.palette.primary.dark,
+          transform: 'scale(1.03)',
+        },
+        '&:focus': {
+          outline: `2px solid ${theme.palette.primary.main}`,
+          outlineOffset: '2px',
+        },
+      }),
+
+      '&:disabled': {
+        opacity: 0.5,
+        cursor: 'not-allowed',
+        backgroundColor: isDark ? theme.palette.grey[800] : theme.palette.grey[200],
+        color: theme.palette.grey[500],
+        borderColor: isDark ? theme.palette.grey[700] : theme.palette.grey[300],
+        '&:hover': {
+          transform: 'none',
+        },
+      },
+    };
+  }
+);
 
 const Button: React.FC<CustomButtonProps> = ({
   customvariant = 'primary',
   customsize = 'medium',
+  mode = 'light',
   children,
   ...props
 }) => {
@@ -79,6 +99,7 @@ const Button: React.FC<CustomButtonProps> = ({
   return (
     <StyledButton
       customvariant={customvariant}
+      mode={mode}
       {...sizeProps[customsize]}
       {...props}
     >
