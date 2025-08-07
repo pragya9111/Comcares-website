@@ -59,3 +59,8 @@ export interface FormData {
 export interface ContactFormProps {
   className?: string;
 }
+
+export interface Stat {
+  number: string;
+  label: string;
+}

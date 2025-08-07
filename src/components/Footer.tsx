@@ -1,7 +1,7 @@
-import { FaFacebookF, FaLinkedinIn, FaTwitter, FaInstagram, FaGithub } from "react-icons/fa";
 import { FiMail, FiPhone, FiMapPin, FiArrowRight } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import logo from "../assets/comcares-logo.png";
+import { NAVIGATION_ITEMS, SERVICE_ITEMS, SOCIAL_LINKS } from "../utils/constants";
 
 const Footer = () => {
   return (
@@ -51,16 +51,11 @@ const Footer = () => {
             <div className="space-y-6">
               <h4 className="text-lg font-semibold text-gray-900 dark:text-white">Quick Links</h4>
               <ul className="space-y-3">
-                {[
-                  { label: 'About Us', to: '/about' },
-                  { label: 'Our Services', to: '/services' },
-                  { label: 'Products', to: '/products' },
-                  { label: 'Portfolio', to: '/portfolio' },
-                  { label: 'Contact Us', to: '/contactus' }
-                ].map(({ label, to }) => (
+                {NAVIGATION_ITEMS.map(({ label, path }) => (
                   <li key={label}>
                     <Link
-                      to={to}
+                      to={path}
+                      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                       className="group flex items-center space-x-2 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200"
                     >
                       <FiArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-200" />
@@ -75,16 +70,11 @@ const Footer = () => {
             <div className="space-y-6">
               <h4 className="text-lg font-semibold text-gray-900 dark:text-white">Our Services</h4>
               <ul className="space-y-3">
-                {[
-                  { label: 'Web Development', to: '/services/web-dev' },
-                  { label: 'Mobile Apps', to: '/services/mobile-apps' },
-                  { label: 'UI/UX Design', to: '/services/ui-ux' },
-                  { label: 'Digital Marketing', to: '/services/marketing' },
-                  { label: 'BPO Services', to: '/services/bpo' }
-                ].map(({ label, to }) => (
+                {SERVICE_ITEMS.map(({ label, to }) => (
                   <li key={label}>
                     <Link
                       to={to}
+                      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                       className="group flex items-center space-x-2 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200"
                     >
                       <FiArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-200" />
@@ -103,20 +93,14 @@ const Footer = () => {
               <div className="flex items-center space-x-6">
                 <span className="text-gray-600 dark:text-gray-300 font-medium">Follow Us:</span>
                 <div className="flex space-x-4">
-                  {[
-                    { icon: FaFacebookF, href: '#', label: 'Facebook' },
-                    { icon: FaLinkedinIn, href: '#', label: 'LinkedIn' },
-                    { icon: FaTwitter, href: '#', label: 'Twitter' },
-                    { icon: FaInstagram, href: '#', label: 'Instagram' },
-                    { icon: FaGithub, href: '#', label: 'GitHub' }
-                  ].map(({ icon: Icon, href, label }) => (
+                  {SOCIAL_LINKS.map(({ icon: Icon, href, label }) => (
                     <a
                       key={label}
                       href={href}
                       aria-label={label}
                       className="w-10 h-10 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-all duration-300 transform hover:scale-110"
                     >
-                      <Icon className="w-4 h-4" />
+                      {Icon}
                     </a>
                   ))}
                 </div>

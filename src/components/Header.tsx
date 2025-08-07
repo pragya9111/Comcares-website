@@ -3,10 +3,8 @@ import { useState } from 'react';
 import ThemeToggle from './ThemeToggle';
 import Dropdown from './Dropdown';
 import logo from '../assets/comcares-logo.png';
-import { FiLayers, FiGrid, FiMonitor, FiBox, FiCpu } from 'react-icons/fi';
-import { TfiHeadphoneAlt } from 'react-icons/tfi';
 import { HiMenu, HiX } from 'react-icons/hi';
-import { NAVIGATION_ITEMS, productDescriptions, serviceDescriptions } from '../utils/constants';
+import { NAVIGATION_ITEMS, productDescriptions, serviceDescriptions, SERVICE_ITEMS, PRODUCT_ITEMS } from '../utils/constants';
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -14,22 +12,6 @@ const Header = () => {
 
   const toggleMobileMenu = () => setIsMobileMenuOpen((prev) => !prev);
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
-
-  const dropdownItems = {
-    products: [
-      { label: 'Interactive Reports', icon: <FiMonitor />, to: '/products/reports' },
-      { label: 'Team Dashboard', icon: <FiGrid />, to: '/products/dashboard' },
-      { label: 'Segmentation', icon: <FiLayers />, to: '/products/segmentation' },
-      { label: 'Group Analytics', icon: <FiCpu />, to: '/products/analytics' }
-    ],
-    services: [
-      { label: 'Web Development', icon: <FiBox />, to: '/services/web-dev' },
-      { label: 'Mobile Apps', icon: <FiGrid />, to: '/services/mobile-apps' },
-      { label: 'UI/UX Design', icon: <FiMonitor />, to: '/services/ui-ux' },
-      { label: 'Digital Marketing', icon: <FiLayers />, to: '/services/marketing' },
-      { label: 'Business Process Outsourcing (BPO)', icon: <TfiHeadphoneAlt />, to: '/services/bpo' }
-    ]
-  };
 
   // Check if current path matches navigation item
   const isActiveRoute = (path: string): boolean => {
@@ -72,7 +54,7 @@ const Header = () => {
 
               <Dropdown
                 title="Products"
-                items={dropdownItems.products}
+                items={PRODUCT_ITEMS}
                 isOpen={activeDropdown === 'products'}
                 onMouseEnter={() => setActiveDropdown('products')}
                 onMouseLeave={() => setActiveDropdown(null)}
@@ -81,7 +63,7 @@ const Header = () => {
 
               <Dropdown
                 title="Services"
-                items={dropdownItems.services}
+                items={SERVICE_ITEMS}
                 isOpen={activeDropdown === 'services'}
                 onMouseEnter={() => setActiveDropdown('services')}
                 onMouseLeave={() => setActiveDropdown(null)}
@@ -127,7 +109,7 @@ const Header = () => {
 
           <div className="px-4 py-2">
             <div className="text-gray-600 dark:text-gray-400 text-sm font-medium mb-2">Products</div>
-            {dropdownItems.products.map(({ label, to }) => (
+            {PRODUCT_ITEMS.map(({ label, to }) => (
               <Link
                 key={label}
                 to={to}
@@ -141,7 +123,7 @@ const Header = () => {
 
           <div className="px-4 py-2">
             <div className="text-gray-600 dark:text-gray-400 text-sm font-medium mb-2">Services</div>
-            {dropdownItems.services.map(({ label, to }) => (
+            {SERVICE_ITEMS.map(({ label, to }) => (
               <Link
                 key={label}
                 to={to}

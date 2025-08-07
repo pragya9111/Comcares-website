@@ -3,7 +3,7 @@ import { CONTACT_INFO } from '../../utils/constants';
 
 const ContactInfo: React.FC = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-center mb-16">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-center my-16">
       {CONTACT_INFO.map((contact, index) => {
         const IconComponent = contact.icon;
         return (

@@ -2,26 +2,34 @@ import React from 'react';
 import ContactInfo from '../components/contact/ContactInfo';
 import ContactForm from '../components/contact/ContactForm';
 import contact from "../assets/contact.png";
+import { motion } from 'framer-motion';
+import { containerVariants, itemVariants } from '../utils/animation';
 
 const ContactUs: React.FC = () => {
   return (
-    <div className="w-full bg-white text-slate-900 dark:bg-slate-950 dark:text-white transition-colors duration-300">
-      {/* Header Section */}
-      <header className="w-full px-4 pt-20 pb-12 md:px-12 lg:px-24">
-        <div className="text-center mb-6">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-slate-950 dark:via-gray-800 dark:to-blue-900">
+      {/* Hero Section */}
+      <motion.section
+        className="px-4 md:px-12 lg:px-24 pt-20 text-center"
+        initial="hidden"
+        animate="visible"
+        variants={containerVariants}
+      >
+        <motion.div variants={itemVariants}>
           <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4 mt-10">
             Let's contact us
           </h1>
-          <p className="text-2xl text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
-            and talk about your idea
-          </p>
-        </div>
-      </header>
+          <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed">
+            and talk about your idea</p>
+        </motion.div>
+
+        {/* Contact Info Grid */}
+        <motion.div variants={itemVariants}>
+          <ContactInfo />
+        </motion.div>
+      </motion.section>
 
       <main className="w-full px-4 md:px-12 lg:px-24 h-full pb-10">
-        {/* Contact Info Grid */}
-        <ContactInfo />
-
         {/* Contact Form Section - Full Width */}
         <section className="max-w-8xl rounded-2xl bg-gray-100 dark:bg-gray-900 shadow-2xl p-8 md:p-12 mt-12 h-full">
           <div className="px-4 md:px-8 lg:px-10">
