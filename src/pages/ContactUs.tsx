@@ -34,7 +34,7 @@ const ContactUs: React.FC = () => {
         <section className="max-w-8xl rounded-2xl bg-gray-100 dark:bg-gray-900 shadow-2xl p-8 md:p-12 mt-12 h-full">
           <div className="px-4 md:px-8 lg:px-10">
             <h2 className="text-center text-2xl md:text-3xl font-semibold mb-12 text-slate-900 dark:text-white">
-              Have a project? Contact me to collaborate
+              Have a project? Contact us to collaborate
             </h2>
 
             {/* Form Container Box */}

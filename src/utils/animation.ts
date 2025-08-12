@@ -43,3 +43,15 @@ export const cardVariants: Variants = {
     }
   }
 };
+
+
+export const floatingVariants: Variants = {
+  animate: {
+    y: [0, -20, 0],
+    transition: {
+      duration: 3,
+      repeat: Infinity,
+      ease: "easeInOut"
+    }
+  }
+};

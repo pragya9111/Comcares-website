@@ -12,8 +12,24 @@ import {
   FaInstagram,
   FaFacebookF,
   FaLinkedinIn,
-  FaTwitter
+  FaTwitter,
+  FaCloud,
+  FaHeadset,
+  FaLaptopCode,
+  FaMobileAlt
 } from 'react-icons/fa';
+import reactlogo from "../assets/React.png"
+import nodejslogo from "../assets/Node.js.png"
+import jslogo from "../assets/JavaScript.png"
+import tslogo from "../assets/TypeScript.png"
+import htmllogo from "../assets/HTML5.png"
+import csslogo from "../assets/CSS3.png"
+import tailwindlogo from "../assets/Tailwind CSS.png"
+import reduxlogo from "../assets/Redux.png"
+import expresslogo from "../assets/Express.png"
+import awslogo from "../assets/AWS.png"
+import figmalogo from "../assets/Figma.png"
+import xdlogo from "../assets/Adobe XD.png"
 
 // Navigation constants
 export const NAVIGATION_ITEMS: NavigationItem[] = [
@@ -22,6 +38,7 @@ export const NAVIGATION_ITEMS: NavigationItem[] = [
   { label: 'Portfolio', path: '/portfolio' },
   { label: 'Contact Us', path: '/contact-us' }
 ];
+
 
 export const CONTACT_INFO = [
   {
@@ -60,7 +77,6 @@ export const serviceDescriptions = [
   'SEO, social media & digital strategy',
   'Customer support & business solutions'
 ];
-
 
 export const ABOUT_VALUES = [
   {
@@ -123,4 +139,42 @@ export const SOCIAL_LINKS = [
   { icon: <FaTwitter />, href: '#', label: 'Twitter' },
   { icon: <FaInstagram />, href: '#', label: 'Instagram' },
   { icon: <FaGithub />, href: '#', label: 'GitHub' }
+];
+
+export const HOME_SERVICES = [
+  {
+    icon: <FaLaptopCode size={32} />,
+    title: 'Web Development',
+    description: 'Responsive, scalable, and secure web solutions tailored to your business.',
+  },
+  {
+    icon: <FaMobileAlt size={32} />,
+    title: 'Mobile Applications',
+    description: 'Intuitive and high-performing mobile apps for iOS and Android.',
+  },
+  {
+    icon: <FaHeadset size={32} />,
+    title: 'BPO Services',
+    description: 'Comprehensive back-office support to streamline your operations.',
+  },
+  {
+    icon: <FaCloud size={32} />,
+    title: 'Cloud Solutions',
+    description: 'Cloud strategy, migration, and management for seamless scalability.',
+  },
+];
+
+export const TECH_STACKS = [
+  { name: "React", logo: reactlogo, bg: "white", hoverBg: "#0369a1" },
+  { name: "Node.js", logo: nodejslogo, bg: "white", hoverBg: "#3f6212" },
+  { name: "JavaScript", logo: jslogo, bg: "#facc15", hoverBg: "#ca8a04" },
+  { name: "TypeScript", logo: tslogo, bg: "#2563eb", hoverBg: "#1e40af" },
+  { name: "HTML5", logo: htmllogo, bg: "#e34c26", hoverBg: "#b91c1c" },
+  { name: "CSS3", logo: csslogo, bg: "#2563eb", hoverBg: "#1e40af" },
+  { name: "Tailwind CSS", logo: tailwindlogo, bg: "#06b6d4", hoverBg: "#0e7490" },
+  { name: "Redux", logo: reduxlogo, bg: "#a78bfa", hoverBg: "#7c3aed" },
+  { name: "Express", logo: expresslogo, bg: "#f3f4f6", hoverBg: "#d1d5db" }, // light bg for dark logo
+  { name: "AWS", logo: awslogo, bg: "#f59e42", hoverBg: "#b45309" },
+  { name: "Figma", logo: figmalogo, bg: "#f24e1e", hoverBg: "#be185d" },
+  { name: "Adobe XD", logo: xdlogo, bg: "#ff61a6", hoverBg: "#be185d" }
 ];
