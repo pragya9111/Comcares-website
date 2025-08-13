@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import { Button } from "@mui/material";
 import heroImage from "../../assets/hero-bg3.png";
 import { containerVariants, itemVariants } from "../../utils/animation";
+import Button from "../ui/Button";
 
 const Hero = () => {
   return (
@@ -27,7 +27,9 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 1 }}
           >
-            Comcares Technologies delivers next-generation web development, mobile app solutions, and BPO services to help your business thrive in a digital-first world. Our expert team combines creativity, technology, and strategy to accelerate your growth and streamline your operations.
+            Comcares Technologies delivers next-generation web development, mobile app solutions,
+            and BPO services to help your business thrive in a digital-first world. Our expert team
+            combines creativity, technology, and strategy to accelerate your growth and streamline your operations.
           </motion.p>
 
           <motion.div
@@ -37,16 +39,9 @@ const Hero = () => {
             className="mt-6"
           >
             <Button
-              variant="contained"
+              customvariant="primary"
               size="large"
-              sx={{
-                bgcolor: "#14b8a6",
-                color: "#fff",
-                "&:hover": { bgcolor: "#0d9488" },
-                boxShadow: "0 4px 24px 0 rgba(20,184,166,0.15)",
-                transition: "background 0.3s",
-              }}
-            >
+              onClick={() => alert("Get Started Clicked")}>
               Get Started
             </Button>
           </motion.div>
@@ -60,7 +55,7 @@ const Hero = () => {
         >
           <motion.div
             className="overflow-hidden transition-colors duration-500 p-4"
-            animate={{ y: [0, -15, 0, 15, 0] }}
+            animate={{ y: [0, -10, 0, 10, 0] }}
             transition={{
               duration: 5,
               repeat: Infinity,

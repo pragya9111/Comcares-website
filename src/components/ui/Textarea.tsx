@@ -18,8 +18,8 @@ const StyledTextarea = styled(TextField)(({ theme }) => ({
       borderColor: '#6b7280', // gray-500
     },
     '&.Mui-focused fieldset': {
-      borderColor: 'white',
-      borderWidth: '2px',
+      borderColor: "#1b94cc", // blue-600 (nearest)
+      borderWidth: '1.5px',
     },
   },
   '& .MuiInputLabel-root': {
@@ -36,7 +36,7 @@ const StyledTextarea = styled(TextField)(({ theme }) => ({
     },
   },
   '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
-    borderColor: 'white',
+    borderColor: "#1b94cc",
   },
 }));
 

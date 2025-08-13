@@ -9,6 +9,20 @@ import { NAVIGATION_ITEMS, productDescriptions, serviceDescriptions, SERVICE_ITE
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [closeTimeout, setCloseTimeout] = useState<ReturnType<typeof setTimeout> | null>(null);
+
+  const handleMouseEnter = (menu: string) => {
+    if (closeTimeout) clearTimeout(closeTimeout);
+    setActiveDropdown(menu);
+  };
+
+  // Smooth dropdown close delay to prevent sudden hide on mouse leave
+  const handleMouseLeave = () => {
+    const timeout = setTimeout(() => {
+      setActiveDropdown(null);
+    }, 200); // 200ms delay
+    setCloseTimeout(timeout);
+  };
 
   const toggleMobileMenu = () => setIsMobileMenuOpen((prev) => !prev);
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
@@ -56,8 +70,8 @@ const Header = () => {
                 title="Products"
                 items={PRODUCT_ITEMS}
                 isOpen={activeDropdown === 'products'}
-                onMouseEnter={() => setActiveDropdown('products')}
-                onMouseLeave={() => setActiveDropdown(null)}
+                onMouseEnter={() => handleMouseEnter("products")}
+                onMouseLeave={() => handleMouseLeave()}
                 descriptions={productDescriptions}
               />
 
@@ -65,8 +79,8 @@ const Header = () => {
                 title="Services"
                 items={SERVICE_ITEMS}
                 isOpen={activeDropdown === 'services'}
-                onMouseEnter={() => setActiveDropdown('services')}
-                onMouseLeave={() => setActiveDropdown(null)}
+                onMouseEnter={() => handleMouseEnter("services")}
+                onMouseLeave={() => handleMouseLeave()}
                 descriptions={serviceDescriptions}
                 width="w-80"
               />

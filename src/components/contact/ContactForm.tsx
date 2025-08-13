@@ -1,11 +1,11 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import Input from '../ui/Input';
 import Button from '../ui/Button';
 import Textarea from '../ui/Textarea';
 import { SERVICE_CATEGORIES } from '../../utils/constants';
 import { useContactForm } from '../../hooks/useContactForm';
 import type { ContactFormProps } from '../../types';
-import { useAppSelector, type RootState } from '../../store/store';
 
 const ContactForm: React.FC<ContactFormProps> = ({ className = '' }) => {
   const {
@@ -17,8 +17,6 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = '' }) => {
     handleSubmit,
     resetForm
   } = useContactForm();
-
-  const currentTheme = useAppSelector((state: RootState) => state.theme.theme);
 
   const handleServiceCategorySelect = (category: string) => {
     handleInputChange('serviceCategory',
@@ -39,8 +37,8 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = '' }) => {
           </p>
           <Button
             type="button"
-            customvariant="outline"
-            customsize="medium"
+            customvariant="primary"
+            size="medium"
             onClick={resetForm}
           >
             Send Another Message
@@ -128,18 +126,34 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = '' }) => {
           </label>
           <div className="flex flex-wrap gap-3" role="group" aria-label="Service Categories">
             {SERVICE_CATEGORIES.map(category => (
-              <Button
+              <motion.div
                 key={category}
-                type="button"
-                customvariant={formData.serviceCategory === category ? "primary" : "outline"}
-                mode={currentTheme}
-                customsize="small"
+                initial={false}
+                animate={{
+                  backgroundColor: formData.serviceCategory === category ? '#1b94cc' : 'transparent',
+                  borderColor: formData.serviceCategory === category ? '#1b94cc' : '#1b94cc80',
+                  color: formData.serviceCategory === category ? '#ffffff' : '#1b94cc',
+                }}
+                whileHover={{
+                  scale: 1.02,
+                  backgroundColor: formData.serviceCategory !== category
+                    ? '#1b94cc20'
+                    : undefined,
+                }}
+                whileTap={{ scale: 0.98 }}
+                transition={{
+                  duration: 0.2,
+                  backgroundColor: { duration: 0.15 }
+                }}
+                className={`
+                  px-4 py-2 rounded-lg border-2 cursor-pointer text-sm font-medium
+                  transition-colors dark:text-white dark:border-opacity-70
+            `}
                 onClick={() => handleServiceCategorySelect(category)}
                 aria-pressed={formData.serviceCategory === category}
-                className="transition-all duration-200"
               >
                 {category}
-              </Button>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -162,13 +176,14 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = '' }) => {
           <Button
             type="submit"
             customvariant="primary"
-            customsize="large"
+            size="medium"
             disabled={isSubmitting}
             className="min-w-[200px]"
           >
             {isSubmitting ? (
               <span className="flex items-center justify-center gap-2">
-                <div className="w-4 h-4 border-2 border-gray-600 dark:border-gray-300 border-t-transparent rounded-full animate-spin"></div>
+                <div className="w-4 h-4 border-2 border-gray-600 dark:border-gray-300 
+                border-t-transparent rounded-full animate-spin"></div>
                 Sending...
               </span>
             ) : (

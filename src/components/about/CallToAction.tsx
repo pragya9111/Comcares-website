@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { containerVariants, itemVariants } from '../../utils/animation'
+import Button from '../ui/Button'
 
 const CallToAction: React.FC = () => {
 
@@ -19,13 +20,13 @@ const CallToAction: React.FC = () => {
         <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-12">
           Let's work together to bring your vision to life with innovative technology solutions tailored to your unique needs.
         </p>
-        <motion.button
-          className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-12 py-4 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+        <Button
+          customvariant="primary"
+          size="large"
+        // onClick={() => alert("Get Started Clicked")}
         >
           Get Started Today
-        </motion.button>
+        </Button>
       </motion.div>
     </motion.section>
   )
