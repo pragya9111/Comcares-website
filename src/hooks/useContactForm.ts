@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState, useCallback } from 'react';
 import type { FormData } from '../types';
 
@@ -49,11 +48,11 @@ const validationRules = {
     }
     return undefined;
   },
-  company: (value: string) => {
+  company: () => {
     // Optional field, no validation needed
     return undefined;
   },
-  serviceCategory: (value: string) => {
+  serviceCategory: () => {
     // Optional field, no validation needed
     return undefined;
   },

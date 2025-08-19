@@ -4,8 +4,7 @@ import Switch from '@mui/material/Switch';
 import { toggleTheme } from '../store/themeSlice';
 import { useAppDispatch, useAppSelector, type RootState } from '../store/store';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const MaterialUISwitch = styled(Switch)(({ theme }) => ({
+const MaterialUISwitch = styled(Switch)(() => ({
   width: 62,
   height: 36,
   padding: 7,

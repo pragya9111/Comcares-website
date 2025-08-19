@@ -4,8 +4,7 @@ import { styled } from '@mui/material/styles';
 import type { CustomInputProps } from '../../types';
 
 // Styled Material-UI TextField with custom dark theme styling
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const StyledTextField = styled(TextField)(({ theme }) => ({
+const StyledTextField = styled(TextField)(() => ({
   '& .MuiOutlinedInput-root': {
     backgroundColor: 'transparent',
     color: 'white',
