@@ -64,3 +64,24 @@ export interface Stat {
   number: string;
   label: string;
 }
+
+export interface BlogContentSection {
+  heading: string;
+  content: string;
+}
+
+export interface Blog {
+  id: string;
+  title: string;
+  thumbnail: string;
+  content: BlogContentSection[];
+  category: string;
+  date: string;
+  readTime: string;
+  excerpt: string;
+  author: {
+    name: string;
+    role: string;
+    avatar: string;
+  };
+}

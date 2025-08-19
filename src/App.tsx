@@ -3,6 +3,8 @@ import Home from './pages/Home';
 import MainLayout from './layout/MainLayout';
 import About from './pages/About';
 import ContactUs from './pages/ContactUs';
+import BlogList from './pages/Blog';
+import BlogDetail from './components/blog/BlogDetail';
 
 const App = () => {
   return (
@@ -29,6 +31,22 @@ const App = () => {
           element={
             <MainLayout>
               <ContactUs />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/blogs"
+          element={
+            <MainLayout>
+              <BlogList />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/blogs/:id"
+          element={
+            <MainLayout>
+              <BlogDetail />
             </MainLayout>
           }
         />

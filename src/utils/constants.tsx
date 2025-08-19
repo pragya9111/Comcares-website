@@ -36,7 +36,8 @@ export const NAVIGATION_ITEMS: NavigationItem[] = [
   { label: 'Home', path: '/' },
   { label: 'About Us', path: '/about-us' },
   { label: 'Portfolio', path: '/portfolio' },
-  { label: 'Contact Us', path: '/contact-us' }
+  { label: 'Contact Us', path: '/contact-us' },
+  { label: 'Blog', path: '/blogs' }
 ];
 
 
