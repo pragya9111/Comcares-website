@@ -1,9 +1,9 @@
-import webDevGif from "../assets/web-dev.gif"
-import mobileDevGif from "../assets/mobile-dev.gif"
-import uiuxdesign from "../assets/ui-ux-design.gif"
-import cloudDev from "../assets/cloud-dev.gif"
-import ai from "../assets/ai.gif"
-import bpo from "../assets/bpo.gif"
+import webDevGif from '/web-dev.gif'
+import mobileDevGif from "/mobile-dev.gif"
+import uiuxdesign from "/ui-ux-design.gif"
+import cloudDev from "/cloud-dev.gif"
+import ai from "/ai.gif"
+import bpo from "/bpo.gif"
 
 export const SERVICES_DATA = [
   {

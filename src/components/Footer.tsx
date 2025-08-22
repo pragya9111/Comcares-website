@@ -1,6 +1,6 @@
 import { FiMail, FiPhone, FiMapPin, FiArrowRight } from "react-icons/fi";
 import { Link } from "react-router-dom";
-import logo from "../assets/comcares-logo.png";
+import logo from "/comcares-logo.png";
 import { NAVIGATION_ITEMS, SOCIAL_LINKS } from "../utils/constants";
 import { SERVICES_DATA } from "../utils/servicesData";
 

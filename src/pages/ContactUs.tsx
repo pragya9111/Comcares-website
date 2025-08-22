@@ -1,7 +1,7 @@
 import React from 'react';
 import ContactInfo from '../components/contact/ContactInfo';
 import ContactForm from '../components/contact/ContactForm';
-import contact from "../assets/contact.png";
+import contact from "/contact.png";
 import { motion } from 'framer-motion';
 import { containerVariants, itemVariants } from '../utils/animation';
 

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import ThemeToggle from './ThemeToggle';
 import Dropdown from './Dropdown';
-import logo from '../assets/comcares-logo.png';
+import logo from '/comcares-logo.png';
 import { HiMenu, HiX } from 'react-icons/hi';
 import { NAVIGATION_ITEMS, productDescriptions, PRODUCT_ITEMS } from '../utils/constants';
 

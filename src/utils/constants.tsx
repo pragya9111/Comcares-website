@@ -17,18 +17,18 @@ import {
   FaLaptopCode,
   FaMobileAlt
 } from 'react-icons/fa';
-import reactlogo from "../assets/React.png"
-import nodejslogo from "../assets/Node.js.png"
-import jslogo from "../assets/JavaScript.png"
-import tslogo from "../assets/TypeScript.png"
-import htmllogo from "../assets/HTML5.png"
-import csslogo from "../assets/CSS3.png"
-import tailwindlogo from "../assets/Tailwind CSS.png"
-import reduxlogo from "../assets/Redux.png"
-import expresslogo from "../assets/Express.png"
-import awslogo from "../assets/AWS.png"
-import figmalogo from "../assets/Figma.png"
-import xdlogo from "../assets/Adobe XD.png"
+import reactlogo from "/React.png"
+import nodejslogo from "/Node.js.png"
+import jslogo from "/JavaScript.png"
+import tslogo from "/TypeScript.png"
+import htmllogo from "/HTML5.png"
+import csslogo from "/CSS3.png"
+import tailwindlogo from "/Tailwind CSS.png"
+import reduxlogo from "/Redux.png"
+import expresslogo from "/Express.png"
+import awslogo from "/AWS.png"
+import figmalogo from "/Figma.png"
+import xdlogo from "/Adobe XD.png"
 
 // Navigation constants
 export const NAVIGATION_ITEMS: NavigationItem[] = [

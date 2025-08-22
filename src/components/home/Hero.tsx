@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import heroImage from "../../assets/hero-bg3.png";
+import heroImage from "/hero-bg3.png";
 import { containerVariants, itemVariants } from "../../utils/animation";
 import Button from "../ui/Button";
 
