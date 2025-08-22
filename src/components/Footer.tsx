@@ -1,7 +1,8 @@
 import { FiMail, FiPhone, FiMapPin, FiArrowRight } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import logo from "../assets/comcares-logo.png";
-import { NAVIGATION_ITEMS, SERVICE_ITEMS, SOCIAL_LINKS } from "../utils/constants";
+import { NAVIGATION_ITEMS, SOCIAL_LINKS } from "../utils/constants";
+import { SERVICES_DATA } from "../utils/servicesData";
 
 const Footer = () => {
   return (
@@ -70,17 +71,8 @@ const Footer = () => {
             <div className="space-y-6">
               <h4 className="text-lg font-semibold text-gray-900 dark:text-white">Our Services</h4>
               <ul className="space-y-3">
-                {SERVICE_ITEMS.map(({ label, to }) => (
-                  <li key={label}>
-                    <Link
-                      to={to}
-                      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                      className="group flex items-center space-x-2 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200"
-                    >
-                      <FiArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-200" />
-                      <span>{label}</span>
-                    </Link>
-                  </li>
+                {SERVICES_DATA.map(({ title }) => (
+                  <li key={title} className="group flex items-center space-x-2 pl-4 text-gray-600 dark:text-gray-300">{title}</li>
                 ))}
               </ul>
             </div>

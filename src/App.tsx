@@ -5,6 +5,7 @@ import About from './pages/About';
 import ContactUs from './pages/ContactUs';
 import BlogList from './pages/Blog';
 import BlogDetail from './components/blog/BlogDetail';
+import Services from './pages/Services';
 
 const App = () => {
   return (
@@ -39,6 +40,14 @@ const App = () => {
           element={
             <MainLayout>
               <BlogList />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/services"
+          element={
+            <MainLayout>
+              <Services />
             </MainLayout>
           }
         />

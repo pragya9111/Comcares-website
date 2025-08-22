@@ -18,7 +18,7 @@ const Services = () => (
             transition={{ delay: index * 0.2 }}
             viewport={{ once: true }}
           >
-            <div className="text-teal-500 mb-4">{service.icon}</div>
+            <div className="flex-1 flex justify-center text-sky-600 mb-4">{service.icon}</div>
             <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
             <p className="text-sm text-gray-600 dark:text-gray-300">{service.description}</p>
           </motion.div>

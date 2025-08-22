@@ -4,7 +4,7 @@ import ThemeToggle from './ThemeToggle';
 import Dropdown from './Dropdown';
 import logo from '../assets/comcares-logo.png';
 import { HiMenu, HiX } from 'react-icons/hi';
-import { NAVIGATION_ITEMS, productDescriptions, serviceDescriptions, SERVICE_ITEMS, PRODUCT_ITEMS } from '../utils/constants';
+import { NAVIGATION_ITEMS, productDescriptions, PRODUCT_ITEMS } from '../utils/constants';
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -74,16 +74,6 @@ const Header = () => {
                 onMouseLeave={() => handleMouseLeave()}
                 descriptions={productDescriptions}
               />
-
-              <Dropdown
-                title="Services"
-                items={SERVICE_ITEMS}
-                isOpen={activeDropdown === 'services'}
-                onMouseEnter={() => handleMouseEnter("services")}
-                onMouseLeave={() => handleMouseLeave()}
-                descriptions={serviceDescriptions}
-                width="w-80"
-              />
             </nav>
 
             <ThemeToggle />
@@ -124,20 +114,6 @@ const Header = () => {
           <div className="px-4 py-2">
             <div className="text-gray-600 dark:text-gray-400 text-sm font-medium mb-2">Products</div>
             {PRODUCT_ITEMS.map(({ label, to }) => (
-              <Link
-                key={label}
-                to={to}
-                onClick={closeMobileMenu}
-                className="block text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 px-2 py-2 text-sm transition"
-              >
-                {label}
-              </Link>
-            ))}
-          </div>
-
-          <div className="px-4 py-2">
-            <div className="text-gray-600 dark:text-gray-400 text-sm font-medium mb-2">Services</div>
-            {SERVICE_ITEMS.map(({ label, to }) => (
               <Link
                 key={label}
                 to={to}

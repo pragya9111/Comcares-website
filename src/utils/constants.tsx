@@ -1,5 +1,4 @@
-import { FiMail, FiPhone, FiMapPin, FiLayers, FiGrid, FiMonitor, FiBox, FiCpu } from 'react-icons/fi';
-import { TfiHeadphoneAlt } from 'react-icons/tfi';
+import { FiMail, FiPhone, FiMapPin, FiLayers, FiGrid, FiMonitor, FiCpu } from 'react-icons/fi';
 import type { NavigationItem, Stat } from '../types';
 import {
   FaShieldAlt,
@@ -37,7 +36,8 @@ export const NAVIGATION_ITEMS: NavigationItem[] = [
   { label: 'About Us', path: '/about-us' },
   { label: 'Portfolio', path: '/portfolio' },
   { label: 'Contact Us', path: '/contact-us' },
-  { label: 'Blog', path: '/blogs' }
+  { label: 'Services', path: '/services' },
+  { label: 'Blog', path: '/blogs' },
 ];
 
 
@@ -62,21 +62,13 @@ export const CONTACT_INFO = [
   }
 ];
 
-export const SERVICE_CATEGORIES = ['UI/UX Design', 'App Development', 'Web Development', 'Other'];
+export const SERVICE_CATEGORIES = ['UI/UX Design', 'Mobile App Development', 'Web Development', 'Other'];
 
 export const productDescriptions = [
   'Create interactive data visualizations',
   'Monitor team performance metrics',
   'Advanced customer segmentation',
   'Deep insights and analytics'
-];
-
-export const serviceDescriptions = [
-  'Custom web applications & solutions',
-  'iOS & Android app development',
-  'User experience & interface design',
-  'SEO, social media & digital strategy',
-  'Customer support & business solutions'
 ];
 
 export const ABOUT_VALUES = [
@@ -117,14 +109,6 @@ export const ABOUT_STATS: Stat[] = [
   { number: "20+", label: "Happy Clients" },
   { number: "3+", label: "Years Experience" },
   { number: "24/7", label: "Support Available" }
-];
-
-export const SERVICE_ITEMS = [
-  { label: 'Web Development', icon: <FiBox />, to: '/services/web-dev' },
-  { label: 'Mobile Apps', icon: <FiGrid />, to: '/services/mobile-apps' },
-  { label: 'UI/UX Design', icon: <FiMonitor />, to: '/services/ui-ux' },
-  { label: 'Digital Marketing', icon: <FiLayers />, to: '/services/marketing' },
-  { label: 'Business Process Outsourcing (BPO)', icon: <TfiHeadphoneAlt />, to: '/services/bpo' }
 ];
 
 export const PRODUCT_ITEMS = [

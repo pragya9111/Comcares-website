@@ -44,7 +44,6 @@ export const cardVariants: Variants = {
   }
 };
 
-
 export const floatingVariants: Variants = {
   animate: {
     y: [0, -20, 0],
@@ -54,4 +53,20 @@ export const floatingVariants: Variants = {
       ease: "easeInOut"
     }
   }
+};
+
+export const fadeIn = (direction: "left" | "right"): Variants => {
+  return {
+    hidden: {
+      opacity: 0,
+      x: direction === "left" ? -100 : 100,
+      scale: 0.95,
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      scale: 1,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
+  };
 };
