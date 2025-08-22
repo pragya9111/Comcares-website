@@ -58,7 +58,7 @@ const BlogDetail: React.FC = () => {
                 <span className="mx-2">•</span>
                 <span>{blog.readTime}</span>
                 <span className="mx-2">•</span>
-                <span className="text-blue-600 dark:text-blue-400">{blog.category}</span>
+                <span className="text-sky-600 dark:text-sky-500">{blog.category}</span>
               </div>
 
               <h1 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">

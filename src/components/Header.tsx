@@ -25,7 +25,10 @@ const Header = () => {
   };
 
   const toggleMobileMenu = () => setIsMobileMenuOpen((prev) => !prev);
-  const closeMobileMenu = () => setIsMobileMenuOpen(false);
+  const closeMobileMenu = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setIsMobileMenuOpen(false)
+  };
 
   // Check if current path matches navigation item
   const isActiveRoute = (path: string): boolean => {
@@ -56,12 +59,13 @@ const Header = () => {
                 <Link
                   key={item.path}
                   to={item.path}
-                  className="relative text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-4 py-2 rounded-lg text-sm font-semibold transition duration-300 hover:bg-blue-50 dark:hover:bg-blue-900/20 group"
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                  className="relative text-gray-700 dark:text-gray-300 hover:text-sky-600 dark:hover:text-sky-400 px-4 py-2 rounded-lg text-sm font-semibold transition duration-300 hover:bg-sky-50 dark:hover:bg-sky-900/20 group"
                 >
                   {item.label}
-                  <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-blue-600 dark:bg-blue-400 transition-all duration-300 group-hover:w-full group-hover:left-0" />
+                  <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-sky-600 dark:bg-sky-400 transition-all duration-300 group-hover:w-full group-hover:left-0" />
                   {isActiveRoute(item.path) && (
-                    <div className="absolute left-0 bottom-0 w-full h-[2px] bg-blue-600 dark:bg-blue-400" />
+                    <div className="absolute left-0 bottom-0 w-full h-[2px] bg-sky-600 dark:bg-sky-600" />
                   )}
                 </Link>
               ))}
@@ -81,7 +85,7 @@ const Header = () => {
             {/* Mobile Toggle Button */}
             <button
               onClick={toggleMobileMenu}
-              className="md:hidden p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none transition"
+              className="md:hidden p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:text-sky-600 dark:hover:text-sky-400 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none transition"
             >
               <span className="sr-only">Toggle Menu</span>
               {isMobileMenuOpen ? <HiX className="h-6 w-6" /> : <HiMenu className="h-6 w-6" />}
@@ -100,11 +104,11 @@ const Header = () => {
               key={item.path}
               to={item.path}
               onClick={closeMobileMenu}
-              className="block text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-4 py-3 rounded-lg text-base font-semibold transition hover:bg-blue-50 dark:hover:bg-blue-900/20"
+              className="block text-gray-700 dark:text-gray-300 hover:text-sky-600 dark:hover:text-sky-400 px-4 py-3 rounded-lg text-base font-semibold transition hover:bg-sky-50 dark:hover:bg-sky-900/20"
             >
               <span className={`${isActiveRoute(item.path)
-                ? 'text-blue-600 dark:text-blue-400'
-                : 'text-gray-700 dark:text-gray-300 group-hover:text-blue-600 dark:group-hover:text-blue-400'
+                ? 'text-sky-600 dark:text-sky-400'
+                : 'text-gray-700 dark:text-gray-300 group-hover:text-sky-600 dark:group-hover:text-sky-400'
                 }`}>
                 {item.label}
               </span>
@@ -118,7 +122,7 @@ const Header = () => {
                 key={label}
                 to={to}
                 onClick={closeMobileMenu}
-                className="block text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 px-2 py-2 text-sm transition"
+                className="block text-gray-600 dark:text-gray-400 hover:text-sky-600 dark:hover:text-sky-400 px-2 py-2 text-sm transition"
               >
                 {label}
               </Link>

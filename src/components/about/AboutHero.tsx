@@ -20,9 +20,9 @@ const AboutHero: React.FC = () => {
     >
       <motion.div variants={itemVariants}>
         <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4 mt-10">
-          About Comcares
+          About  <span className="text-sky-600">Comcares</span>
         </h1>
-        <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed">
+        <p className="text-md md:text-lg text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed">
           We are a forward-thinking technology company dedicated to transforming businesses through innovative web solutions, mobile applications, and comprehensive BPO services.
         </p>
       </motion.div>
@@ -40,7 +40,7 @@ const AboutHero: React.FC = () => {
             <div className="w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-2xl flex items-center justify-center relative overflow-hidden">
               {/* Central team icon */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <FaUsers className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 text-blue-600 dark:text-blue-400 z-10" />
+                <FaUsers className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 text-sky-600 dark:text-sky-400 z-10" />
               </div>
 
               {/* Floating icons around the center */}

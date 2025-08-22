@@ -17,7 +17,7 @@ const StyledTextarea = styled(TextField)(() => ({
       borderColor: '#6b7280', // gray-500
     },
     '&.Mui-focused fieldset': {
-      borderColor: "#1b94cc", // blue-600 (nearest)
+      borderColor: "#1b94cc", // sky-600 (nearest)
       borderWidth: '1.5px',
     },
   },

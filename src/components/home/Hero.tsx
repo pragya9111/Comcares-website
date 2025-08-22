@@ -27,7 +27,7 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 1 }}
           >
-            Comcares Technologies delivers next-generation web development, mobile app solutions,
+            <span className="text-sky-600">Comcares Technologies </span>delivers next-generation web development, mobile app solutions,
             and BPO services to help your business thrive in a digital-first world. Our expert team
             combines creativity, technology, and strategy to accelerate your growth and streamline your operations.
           </motion.p>

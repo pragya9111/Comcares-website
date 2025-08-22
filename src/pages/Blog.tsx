@@ -18,7 +18,7 @@ const Blogs: React.FC = () => {
           <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4 mt-10">
             Latest Insights & Articles
           </h1>
-          <p className="text-xl md:text-xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-md md:text-lg text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed">
             Discover our latest thoughts on technology, innovation, and industry trends
           </p>
         </motion.div>

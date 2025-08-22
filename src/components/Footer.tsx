@@ -34,15 +34,15 @@ const Footer = () => {
               {/* Contact Info */}
               <div className="space-y-3">
                 <div className="flex items-center space-x-3 text-gray-600 dark:text-gray-300">
-                  <FiMail className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                  <FiMail className="w-5 h-5 text-sky-600 dark:text-sky-600" />
                   <span>contact@comcares.com</span>
                 </div>
                 <div className="flex items-center space-x-3 text-gray-600 dark:text-gray-300">
-                  <FiPhone className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                  <FiPhone className="w-5 h-5 text-sky-600 dark:text-sky-600" />
                   <span>+91 9876543210</span>
                 </div>
                 <div className="flex items-center space-x-3 text-gray-600 dark:text-gray-300">
-                  <FiMapPin className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                  <FiMapPin className="w-5 h-5 text-sky-600 dark:text-sky-600" />
                   <span>418, Onam Palaza, AB Road, Indore, 452001, MP, India</span>
                 </div>
               </div>
@@ -57,7 +57,7 @@ const Footer = () => {
                     <Link
                       to={path}
                       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                      className="group flex items-center space-x-2 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200"
+                      className="group flex items-center space-x-2 text-gray-600 dark:text-gray-300 hover:text-sky-600 dark:hover:text-sky-600 transition-all duration-200"
                     >
                       <FiArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-200" />
                       <span>{label}</span>
@@ -72,7 +72,7 @@ const Footer = () => {
               <h4 className="text-lg font-semibold text-gray-900 dark:text-white">Our Services</h4>
               <ul className="space-y-3">
                 {SERVICES_DATA.map(({ title }) => (
-                  <li key={title} className="group flex items-center space-x-2 pl-4 text-gray-600 dark:text-gray-300">{title}</li>
+                  <li key={title} className="group flex items-center space-x-2 pl-5 text-gray-600 dark:text-gray-300">{title}</li>
                 ))}
               </ul>
             </div>
@@ -90,7 +90,7 @@ const Footer = () => {
                       key={label}
                       href={href}
                       aria-label={label}
-                      className="w-10 h-10 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-all duration-300 transform hover:scale-110"
+                      className="w-10 h-10 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-sky-600 hover:text-white dark:hover:bg-sky-600 transition-all duration-300 transform hover:scale-110"
                     >
                       {Icon}
                     </a>
@@ -100,13 +100,13 @@ const Footer = () => {
 
               {/* Legal Links */}
               <div className="flex flex-wrap items-center space-x-6 text-sm text-gray-500 dark:text-gray-400">
-                <Link to="/privacy" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                <Link to="/privacy" className="hover:text-sky-600 dark:hover:text-sky-400 transition-colors">
                   Privacy Policy
                 </Link>
-                <Link to="/terms" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                <Link to="/terms" className="hover:text-sky-600 dark:hover:text-sky-400 transition-colors">
                   Terms of Service
                 </Link>
-                <Link to="/cookies" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                <Link to="/cookies" className="hover:text-sky-600 dark:hover:text-sky-400 transition-colors">
                   Cookie Policy
                 </Link>
               </div>

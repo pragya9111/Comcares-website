@@ -22,9 +22,9 @@ const ServiceCard: React.FC = () => {
             className="flex-1"
             variants={fadeIn(index % 2 === 0 ? "left" : "right")}
           >
-            <h3 className="text-2xl md:text-3xl font-bold mb-4 text-sky-600 dark:text-sky-400 relative">
+            <h3 className="text-2xl md:text-3xl font-bold mb-4 text-sky-500 dark:text-sky-500 relative">
               {service.title}
-              <span className="absolute -bottom-2 left-0 w-16 h-1 bg-sky-400 rounded"></span>
+              <span className="absolute -bottom-2 left-0 w-16 h-1 bg-sky-500 rounded"></span>
             </h3>
             <p className="text-base md:text-md text-gray-700 dark:text-gray-300 leading-relaxed">
               {service.desc}

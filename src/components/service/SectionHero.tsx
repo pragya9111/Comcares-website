@@ -16,7 +16,7 @@ const SectionHero: React.FC = () => {
           Our Services
         </h1>
         <p className="text-md md:text-lg text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed">
-          Comcares Technologies offers a comprehensive suite of digital
+          <span className="text-sky-600">Comcares Technologies </span> offers a comprehensive suite of digital
           solutions including web development, mobile applications, UI/UX design,
           digital marketing, and BPO services. Our expert team is dedicated to
           helping your business grow, innovate, and succeed in today’s

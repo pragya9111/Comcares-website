@@ -17,18 +17,17 @@ const OurStory: React.FC = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
             Our Story
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-8"></div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div className="space-y-6">
-            <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+            <p className="text-md md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
               Founded with a vision to bridge the gap between innovative technology and business success, Comcares has evolved from a small team of passionate developers into a comprehensive digital solutions provider.
             </p>
-            <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+            <p className="text-md md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
               Our journey began with a simple belief: that every business, regardless of size, deserves access to world-class technology solutions. Today, we serve clients across diverse industries, from startups to enterprise-level organizations.
             </p>
-            <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+            <p className="text-md md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
               We combine technical expertise with deep industry knowledge to deliver solutions that not only meet current needs but also scale for future growth. Our commitment to excellence and innovation continues to drive us forward.
             </p>
           </div>
@@ -42,7 +41,7 @@ const OurStory: React.FC = () => {
             <div className="relative bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-2xl border border-gray-200 dark:border-gray-700">
               <div className="grid grid-cols-2 gap-6">
                 <div className="text-center p-4 bg-blue-50 dark:bg-blue-900/20 rounded-xl">
-                  <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">Innovation</div>
+                  <div className="text-2xl font-bold text-sky-600 dark:text-sky-400">Innovation</div>
                   <div className="text-sm text-gray-600 dark:text-gray-300">Driven</div>
                 </div>
                 <div className="text-center p-4 bg-purple-50 dark:bg-purple-900/20 rounded-xl">
