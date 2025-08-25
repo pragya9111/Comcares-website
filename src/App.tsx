@@ -8,6 +8,7 @@ import BlogDetail from './components/blog/BlogDetail';
 import Services from './pages/Services';
 import Portfolio from './pages/Portfolio';
 import PortfolioDetail from './components/portfolio/PortfolioDetail';
+import UnderConstruction from './pages/UnderConstruction';
 
 const App = () => {
   return (
@@ -74,6 +75,14 @@ const App = () => {
           element={
             <MainLayout>
               <PortfolioDetail />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="*"
+          element={
+            <MainLayout>
+              <UnderConstruction />
             </MainLayout>
           }
         />

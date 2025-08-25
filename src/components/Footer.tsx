@@ -100,13 +100,19 @@ const Footer = () => {
 
               {/* Legal Links */}
               <div className="flex flex-wrap items-center space-x-6 text-sm text-gray-500 dark:text-gray-400">
-                <Link to="/privacy" className="hover:text-sky-600 dark:hover:text-sky-400 transition-colors">
+                <Link to="/privacy"
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                  className="hover:text-sky-600 dark:hover:text-sky-400 transition-colors">
                   Privacy Policy
                 </Link>
-                <Link to="/terms" className="hover:text-sky-600 dark:hover:text-sky-400 transition-colors">
+                <Link to="/terms"
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                  className="hover:text-sky-600 dark:hover:text-sky-400 transition-colors">
                   Terms of Service
                 </Link>
-                <Link to="/cookies" className="hover:text-sky-600 dark:hover:text-sky-400 transition-colors">
+                <Link to="/cookies"
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                  className="hover:text-sky-600 dark:hover:text-sky-400 transition-colors">
                   Cookie Policy
                 </Link>
               </div>
