@@ -6,6 +6,8 @@ import ContactUs from './pages/ContactUs';
 import BlogList from './pages/Blog';
 import BlogDetail from './components/blog/BlogDetail';
 import Services from './pages/Services';
+import Portfolio from './pages/Portfolio';
+import PortfolioDetail from './components/portfolio/PortfolioDetail';
 
 const App = () => {
   return (
@@ -44,6 +46,14 @@ const App = () => {
           }
         />
         <Route
+          path="/blogs/:id"
+          element={
+            <MainLayout>
+              <BlogDetail />
+            </MainLayout>
+          }
+        />
+        <Route
           path="/services"
           element={
             <MainLayout>
@@ -52,10 +62,18 @@ const App = () => {
           }
         />
         <Route
-          path="/blogs/:id"
+          path="/portfolio"
           element={
             <MainLayout>
-              <BlogDetail />
+              <Portfolio />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/portfolio/:id"
+          element={
+            <MainLayout>
+              <PortfolioDetail />
             </MainLayout>
           }
         />
