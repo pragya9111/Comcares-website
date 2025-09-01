@@ -5,8 +5,8 @@ const Services = () => (
   <section className="bg-white dark:bg-gray-950 text-gray-900 dark:text-white py-20 px-6 md:px-16">
     <div className="max-w-6xl mx-auto">
       <h2 className="text-3xl font-bold text-center mb-3 font-heading">Our Services</h2>
-      <p className="mb-10 text-center mx-20 px-20 text-gray-600 text-center dark:text-gray-300">
-         <span className="text-sky-600">Comcares</span> specializes in creating exceptional websites and mobile applications. We work across diverse domains, turning our clients’ ideas into reality.
+      <p className="mb-10 text-center mx-5 px-5 lg:mx-10 lg:px-10 text-gray-600 text-center dark:text-gray-300">
+        <span className="text-sky-600">Comcares</span> specializes in creating exceptional websites and mobile applications. We work across diverse domains, turning our clients’ ideas into reality.
       </p>
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
         {HOME_SERVICES.map((service, index) => (
