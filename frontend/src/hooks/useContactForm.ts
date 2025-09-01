@@ -1,164 +1,140 @@
-import { useState, useCallback } from 'react';
-import type { FormData } from '../types';
+import { useState } from 'react';
+import axios from 'axios';
+import type { ContactFormData } from '../types';
 
-interface UseContactFormReturn {
-  formData: FormData;
-  errors: Partial<FormData>;
-  isSubmitting: boolean;
-  isSuccess: boolean;
-  handleInputChange: (name: keyof FormData, value: string) => void;
-  handleSubmit: (e: React.FormEvent) => Promise<void>;
-  resetForm: () => void;
-  validateField: (name: keyof FormData, value: string) => string | undefined;
-}
+export const useContactForm = () => {
+  const [formData, setFormData] = useState<ContactFormData>({
+    firstName: '',
+    lastName: '',
+    phone: '',
+    email: '',
+    company: '',
+    serviceCategory: '',
+    message: '',
+  });
 
-const initialFormData: FormData = {
-  firstName: '',
-  lastName: '',
-  phone: '',
-  email: '',
-  company: '',
-  serviceCategory: '',
-  message: ''
-};
-
-// Validation rules
-const validationRules = {
-  firstName: (value: string) => {
-    if (!value.trim()) return 'First name is required';
-    if (value.trim().length < 2) return 'First name must be at least 2 characters';
-    return undefined;
-  },
-  lastName: (value: string) => {
-    if (!value.trim()) return 'Last name is required';
-    if (value.trim().length < 2) return 'Last name must be at least 2 characters';
-    return undefined;
-  },
-  email: (value: string) => {
-    if (!value.trim()) return 'Email is required';
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(value)) return 'Please enter a valid email address';
-    return undefined;
-  },
-  phone: (value: string) => {
-    if (!value.trim()) return 'Phone number is required';
-    const phoneRegex = /^[+]?[1-9][\d]{0,15}$/;
-    if (!phoneRegex.test(value.replace(/[\s\-()]/g, ''))) {
-      return 'Please enter a valid phone number';
-    }
-    return undefined;
-  },
-  company: () => {
-    // Optional field, no validation needed
-    return undefined;
-  },
-  serviceCategory: () => {
-    // Optional field, no validation needed
-    return undefined;
-  },
-  message: (value: string) => {
-    if (!value.trim()) return 'Message is required';
-    if (value.trim().length < 10) return 'Message must be at least 10 characters';
-    if (value.trim().length > 1000) return 'Message must be less than 1000 characters';
-    return undefined;
-  }
-};
-
-export const useContactForm = (): UseContactFormReturn => {
-  const [formData, setFormData] = useState<FormData>(initialFormData);
-  const [errors, setErrors] = useState<Partial<FormData>>({});
+  const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [responseMessage, setResponseMessage] = useState<{
+    type: 'success' | 'error';
+    text: string;
+  } | null>(null);
 
-  // Validate single field
-  const validateField = useCallback((name: keyof FormData, value: string): string | undefined => {
-    return validationRules[name](value);
-  }, []);
+  const API_URL =
+    import.meta.env.MODE === 'prod'
+      ? import.meta.env.VITE_API_URL_PROD
+      : import.meta.env.VITE_API_URL_DEV;
 
-  // Validate entire form
-  const validateForm = useCallback((): boolean => {
-    const newErrors: Partial<FormData> = {};
-    let isValid = true;
+  // client side validation
+  const validate = () => {
+    const newErrors: Record<string, string> = {};
+    if (!formData.firstName.trim()) newErrors.firstName = 'First name is required';
+    else if (formData.firstName.trim().length < 2) newErrors.firstName = 'First name must be at least 2 characters';
 
-    (Object.keys(formData) as Array<keyof FormData>).forEach(key => {
-      const error = validateField(key, formData[key]);
-      if (error) {
-        newErrors[key] = error;
-        isValid = false;
-      }
+    if (!formData.lastName.trim()) newErrors.lastName = 'Last name is required';
+    else if (formData.lastName.trim().length < 2) newErrors.lastName = 'Last name must be at least 2 characters';
+
+    if (!formData.email.trim()) newErrors.email = 'Email is required';
+    else if (!/^\S+@\S+\.\S+$/.test(formData.email)) newErrors.email = 'Please enter a valid email address';
+
+    if (!formData.phone.trim()) newErrors.phone = 'Phone is required';
+    else if (!/^\d{10}$/.test(formData.phone)) newErrors.phone = 'Phone number must be exactly 10 digits';
+
+    if (formData.company && formData.company.length > 100) newErrors.company = 'Company name cannot exceed 100 characters';
+
+    if (formData.message.trim().length < 10) newErrors.message = 'Message must be at least 10 characters';
+    else if (formData.message.trim().length > 1000) newErrors.message = 'Message cannot exceed 1000 characters';
+    if (!formData.message.trim()) newErrors.message = 'Message is required';
+
+    return newErrors;
+  };
+
+  // Helper to check if form is valid
+  const isFormValid = () => {
+    const validationErrors = validate();
+    return Object.keys(validationErrors).length === 0;
+  };
+
+  const handleInputChange = (field: string, value: string) => {
+    setFormData((prev) => ({ ...prev, [field]: value }));
+    // Validate field on change
+    setErrors((prev) => {
+      const newErrors = { ...prev };
+      const fieldErrors = validate();
+      newErrors[field] = fieldErrors[field] || '';
+      return newErrors;
     });
+  };
 
-    setErrors(newErrors);
-    return isValid;
-  }, [formData, validateField]);
-
-  // Handle input changes with real-time validation
-  const handleInputChange = useCallback((name: keyof FormData, value: string) => {
-    setFormData(prev => ({ ...prev, [name]: value }));
-
-    // Clear success state when user starts editing
-    if (isSuccess) setIsSuccess(false);
-
-    // Real-time validation for better UX
-    const error = validateField(name, value);
-    setErrors(prev => ({ ...prev, [name]: error }));
-  }, [validateField, isSuccess]);
-
-  // Handle form submission
-  const handleSubmit = useCallback(async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setErrors({});
+    setResponseMessage(null);
 
-    if (!validateForm()) return;
+    const validationErrors = validate();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      setResponseMessage({
+        type: 'error',
+        text: 'Please correct the errors above before submitting.',
+      });
+      return;
+    }
 
     setIsSubmitting(true);
-    setErrors({});
-
     try {
-      // TODO: Replace with actual API call
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to submit form');
-      }
-
-      // Simulate API delay for demo
-      await new Promise(resolve => setTimeout(resolve, 1000));
-
+      const response = await axios.post(`${API_URL}/contact`, formData);
+      console.log("response--", response)
       setIsSuccess(true);
-      setFormData(initialFormData);
-
-    } catch (error) {
-      console.error('Form submission error:', error);
-      setErrors({
-        message: 'Failed to send message. Please try again or contact us directly.'
+      setResponseMessage({
+        type: 'success',
+        text: 'Your message has been sent successfully!',
+      });
+    } catch (error: unknown) {
+      let errorMessage = 'Failed to send message. Try again later.';
+      if (axios.isAxiosError(error) && error.response?.data) {
+        const errData = error.response.data;
+        if (errData.message) {
+          errorMessage = errData.message;
+        }
+        if (errData.errors) {
+          setErrors(errData.errors);
+        }
+      }
+      setResponseMessage({
+        type: 'error',
+        text: errorMessage,
       });
     } finally {
       setIsSubmitting(false);
     }
-  }, [formData, validateForm]);
+  };
 
-  // Reset form
-  const resetForm = useCallback(() => {
-    setFormData(initialFormData);
+  const resetForm = () => {
+    setFormData({
+      firstName: '',
+      lastName: '',
+      phone: '',
+      email: '',
+      company: '',
+      serviceCategory: '',
+      message: '',
+    });
     setErrors({});
-    setIsSubmitting(false);
     setIsSuccess(false);
-  }, []);
+    setResponseMessage(null);
+  };
 
   return {
     formData,
     errors,
     isSubmitting,
     isSuccess,
+    responseMessage,
     handleInputChange,
     handleSubmit,
     resetForm,
-    validateField
+    isFormValid,
   };
 };

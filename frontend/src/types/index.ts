@@ -85,3 +85,13 @@ export interface Blog {
     avatar: string;
   };
 }
+
+export interface ContactFormData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  company: string;
+  serviceCategory: string;
+  message: string;
+}

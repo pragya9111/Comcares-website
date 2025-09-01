@@ -40,7 +40,7 @@ const contactSchema = new mongoose.Schema(
       type: String,
       trim: true,
       enum: {
-        values: ["Web Development", "Mobile App", "UI/UX", "Consulting", "Other"],
+        values: ["Web Development", "Mobile App Development", "UI/UX Design", "Other"],
         message: "{VALUE} is not a valid service category",
       },
     },

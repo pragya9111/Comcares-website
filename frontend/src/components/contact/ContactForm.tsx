@@ -13,13 +13,16 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = '' }) => {
     errors,
     isSubmitting,
     isSuccess,
+    responseMessage,
     handleInputChange,
     handleSubmit,
-    resetForm
+    resetForm,
+    isFormValid,
   } = useContactForm();
 
   const handleServiceCategorySelect = (category: string) => {
-    handleInputChange('serviceCategory',
+    handleInputChange(
+      'serviceCategory',
       formData.serviceCategory === category ? '' : category
     );
   };
@@ -122,28 +125,36 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = '' }) => {
         <div>
           <label className="block font-semibold my-4 text-gray-800 dark:text-white">
             Service Category
-            <span className="text-gray-500 dark:text-gray-400 text-sm font-normal ml-2">(Optional)</span>
+            <span className="text-gray-500 dark:text-gray-400 text-sm font-normal ml-2">
+              (Optional)
+            </span>
           </label>
-          <div className="flex flex-wrap gap-3" role="group" aria-label="Service Categories">
-            {SERVICE_CATEGORIES.map(category => (
+          <div
+            className="flex flex-wrap gap-3"
+            role="group"
+            aria-label="Service Categories"
+          >
+            {SERVICE_CATEGORIES.map((category) => (
               <motion.div
                 key={category}
                 initial={false}
                 animate={{
-                  backgroundColor: formData.serviceCategory === category ? '#1b94cc' : 'transparent',
-                  borderColor: formData.serviceCategory === category ? '#1b94cc' : '#1b94cc80',
-                  color: formData.serviceCategory === category ? '#ffffff' : '#1b94cc',
+                  backgroundColor:
+                    formData.serviceCategory === category ? '#1b94cc' : 'transparent',
+                  borderColor:
+                    formData.serviceCategory === category ? '#1b94cc' : '#1b94cc80',
+                  color:
+                    formData.serviceCategory === category ? '#ffffff' : '#1b94cc',
                 }}
                 whileHover={{
                   scale: 1.02,
-                  backgroundColor: formData.serviceCategory !== category
-                    ? '#1b94cc20'
-                    : undefined,
+                  backgroundColor:
+                    formData.serviceCategory !== category ? '#1b94cc20' : undefined,
                 }}
                 whileTap={{ scale: 0.98 }}
                 transition={{
                   duration: 0.2,
-                  backgroundColor: { duration: 0.15 }
+                  backgroundColor: { duration: 0.15 },
                 }}
                 className={`
                   px-4 py-2 rounded-lg border-2 cursor-pointer text-sm font-medium
@@ -172,18 +183,32 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = '' }) => {
         />
 
         {/* Submit Button */}
-        <div className="text-center pt-4">
+        <div className="text-center pt-4 space-y-4">
+          {/* Response Messages */}
+          {responseMessage && (
+            <p
+              className={`text-sm font-medium ${responseMessage.type === 'success'
+                ? 'text-green-600 dark:text-green-400'
+                : 'text-red-500 dark:text-red-400'
+                }`}
+            >
+              {responseMessage.text}
+            </p>
+          )}
+
           <Button
             type="submit"
             customvariant="primary"
             size="medium"
-            disabled={isSubmitting}
+            disabled={isSubmitting || !isFormValid()}
             className="min-w-[200px]"
           >
             {isSubmitting ? (
               <span className="flex items-center justify-center gap-2">
-                <div className="w-4 h-4 border-2 border-gray-600 dark:border-gray-300 
-                border-t-transparent rounded-full animate-spin"></div>
+                <div
+                  className="w-4 h-4 border-2 border-gray-600 dark:border-gray-300 
+                border-t-transparent rounded-full animate-spin"
+                ></div>
                 Sending...
               </span>
             ) : (
@@ -191,12 +216,11 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = '' }) => {
             )}
           </Button>
         </div>
-
         {/* Global Error Message */}
-        {errors.message && !formData.message && (
-          <div className="text-center">
+        {responseMessage && responseMessage.type === 'error' && (
+          <div className="text-center mt-2">
             <p className="text-red-500 dark:text-red-400 text-sm">
-              Please fill in all required fields to continue.
+              {responseMessage.text}
             </p>
           </div>
         )}
