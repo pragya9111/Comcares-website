@@ -1,4 +1,4 @@
-import Contact from "../models/contact.js";
+import Contact from "../models/Contact.js";
 import { sendContactEmail } from "../utils/emailService.js";
 
 // Create new contact
