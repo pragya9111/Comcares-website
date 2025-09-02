@@ -22,7 +22,7 @@ export const useContactForm = () => {
   } | null>(null);
 
   const API_URL =
-    import.meta.env.MODE === 'prod'
+    import.meta.env.VITE_ENV_MODE === 'prod'
       ? import.meta.env.VITE_API_URL_PROD
       : import.meta.env.VITE_API_URL_DEV;
 

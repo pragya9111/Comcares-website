@@ -11,8 +11,14 @@ const PORT = process.env.PORT || 5000;
 
 // Middlewares
 app.use(cors({
-  origin: 'https://comcares-technologies.vercel.app/'
+  origin: [
+    "http://localhost:5173", // for local frontend dev
+    "https://comcares-technologies.vercel.app" // for production frontend
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
 }));
+
 app.use(express.json());
 
 // Routes
