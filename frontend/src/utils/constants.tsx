@@ -29,6 +29,10 @@ import expresslogo from "/Express.png"
 import awslogo from "/AWS.png"
 import figmalogo from "/Figma.png"
 import xdlogo from "/Adobe XD.png"
+import angularlogo from "/AngularJS.png"
+import fluttelogo from "/Flutter.png"
+import laravellogo from "/Laravel.png"
+import phplogo from "/PHP.png"
 
 // Navigation constants
 export const NAVIGATION_ITEMS: NavigationItem[] = [
@@ -150,16 +154,21 @@ export const HOME_SERVICES = [
 ];
 
 export const TECH_STACKS = [
-  { name: "React", logo: reactlogo, bg: "white", hoverBg: "#0369a1" },
-  { name: "Node.js", logo: nodejslogo, bg: "white", hoverBg: "#3f6212" },
-  { name: "JavaScript", logo: jslogo, bg: "#facc15", hoverBg: "#ca8a04" },
-  { name: "TypeScript", logo: tslogo, bg: "#2563eb", hoverBg: "#1e40af" },
-  { name: "HTML5", logo: htmllogo, bg: "#e34c26", hoverBg: "#b91c1c" },
-  { name: "CSS3", logo: csslogo, bg: "#2563eb", hoverBg: "#1e40af" },
-  { name: "Tailwind CSS", logo: tailwindlogo, bg: "#06b6d4", hoverBg: "#0e7490" },
-  { name: "Redux", logo: reduxlogo, bg: "#a78bfa", hoverBg: "#7c3aed" },
-  { name: "Express", logo: expresslogo, bg: "#f3f4f6", hoverBg: "#d1d5db" }, // light bg for dark logo
-  { name: "AWS", logo: awslogo, bg: "#f59e42", hoverBg: "#b45309" },
-  { name: "Figma", logo: figmalogo, bg: "#f24e1e", hoverBg: "#be185d" },
-  { name: "Adobe XD", logo: xdlogo, bg: "#ff61a6", hoverBg: "#be185d" }
+  { name: "React", logo: reactlogo },
+  { name: "Node.js", logo: nodejslogo },
+  { name: "JavaScript", logo: jslogo },
+  { name: "TypeScript", logo: tslogo },
+  { name: "HTML5", logo: htmllogo },
+  { name: "CSS3", logo: csslogo },
+  { name: "Tailwind CSS", logo: tailwindlogo },
+  { name: "Redux", logo: reduxlogo },
+  { name: "Express", logo: expresslogo },
+  { name: "Flutter", logo: fluttelogo },
+  { name: "Laravel", logo: laravellogo },
+  { name: "PHP", logo: phplogo },
+  { name: "React Native", logo: reactlogo },
+  { name: "AngularJS", logo: angularlogo },
+  { name: "AWS", logo: awslogo },
+  { name: "Figma", logo: figmalogo },
+  { name: "Adobe XD", logo: xdlogo },
 ];
